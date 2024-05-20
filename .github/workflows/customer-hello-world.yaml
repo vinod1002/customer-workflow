@@ -1,0 +1,10 @@
+name: Call Reusable Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable-workflow:
+    uses: vinod1002/reusable-workflows/.github/workflows/reusable-hello-world.yaml@main
+    with:
+      who-to-greet: 'Hello from customer-workflow'
