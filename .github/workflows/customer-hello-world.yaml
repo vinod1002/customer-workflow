@@ -5,7 +5,9 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: vinod1002/reusable-workflows/.github/workflows/reusable-hello-world.yaml@main
-  runs-on: self-hosted
-    with:
-      who-to-greet: 'From customer-workflow'
+    runs-on: self-hosted
+    steps:
+      - name: Call reusable workflow
+        uses: vinod1002/reusable-workflows/.github/workflows/reusable-hello-world.yml@main
+        with:
+          who-to-greet: 'From customer-workflow'
