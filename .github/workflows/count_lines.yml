@@ -1,6 +1,7 @@
 name: Count Lines Workflow
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   count_lines:
