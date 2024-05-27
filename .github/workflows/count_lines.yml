@@ -1,0 +1,24 @@
+name: Count Lines Workflow
+
+on: [push]
+
+jobs:
+  count_lines:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Create Sample File
+        run: |
+          echo "Line 1" > sample.txt
+          echo "Line 2" >> sample.txt
+          echo "Line 3" >> sample.txt
+      
+      - name: Run Line Counter Action
+        uses: vinod1002/dummy-action/line-counter@main
+        with:
+          file_path: 'sample.txt'
+      
+      - name: Display Line Count
+        run: echo "Line Count: ${{ steps.line_counter.outputs.line_count }}"
